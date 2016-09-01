@@ -1,4 +1,8 @@
 class SnippetPolicy < ApplicationPolicy
+  def index?
+    false
+  end
+
   def show?
     if record.box.privacy_level == "locked"
       user == record.box.user
@@ -8,6 +12,27 @@ class SnippetPolicy < ApplicationPolicy
       true
     end
   end
+
+  def new?
+    create?
+  end
+
+  def create?
+    true
+  end
+
+  def edit?
+    update?
+  end
+
+  def update?
+    user == record.box.user
+  end
+
+  def destroy?
+    user == record.box.user
+  end
+
   class Scope < Scope
     def resolve
       scope

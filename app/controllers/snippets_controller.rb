@@ -5,6 +5,7 @@ class SnippetsController < ApplicationController
   # GET /snippets
   # GET /snippets.json
   def index
+    authorize @snippet, :index?
     @snippets = Snippet.all
   end
 
@@ -16,16 +17,19 @@ class SnippetsController < ApplicationController
 
   # GET /snippets/new
   def new
+    authorize @snippet, :new?
     @snippet = @box.snippets.new
   end
 
   # GET /snippets/1/edit
   def edit
+    authorize @snippet, :edit?
   end
 
   # POST /snippets
   # POST /snippets.json
   def create
+    authorize @snippet, :create?
     @snippet = @box.snippets.new(snippet_params)
 
     respond_to do |format|
@@ -42,6 +46,7 @@ class SnippetsController < ApplicationController
   # PATCH/PUT /snippets/1
   # PATCH/PUT /snippets/1.json
   def update
+    authorize @snippet, :update?
     respond_to do |format|
       if @snippet.update(snippet_params)
         format.html { redirect_to [@box, @snippet], notice: 'Snippet was successfully updated.' }
@@ -56,6 +61,7 @@ class SnippetsController < ApplicationController
   # DELETE /snippets/1
   # DELETE /snippets/1.json
   def destroy
+    authorize @snippet, :destroy?
     @snippet.destroy
     respond_to do |format|
       format.html { redirect_to @box, notice: 'Snippet was successfully destroyed.' }
