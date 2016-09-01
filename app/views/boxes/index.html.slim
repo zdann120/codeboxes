@@ -1,7 +1,7 @@
 - if notice
   p#notice = notice
 
-h1 Boxes
+h1 Your Code Boxes
 
 table.table
   thead
@@ -9,18 +9,17 @@ table.table
       th Title
       th Privacy
       th Language
-      th colspan="3"
+      th colspan="2"
 
   tbody
     - @boxes.each do |box|
       tr
-        td = box.title
+        td = link_to box.title, box_path(box)
         td = box.privacy_level
         td = box.box_language
-        td = link_to 'Show', box
         td = link_to 'Edit', edit_box_path(box)
         td = link_to 'Destroy', box, method: :delete, data: { confirm: 'Are you sure?' }
 
 br
 
-= link_to 'New Box', new_box_path
+= link_to 'New Box', new_box_path, class: 'btn btn-success'

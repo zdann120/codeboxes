@@ -17,8 +17,8 @@ class SnippetsController < ApplicationController
 
   # GET /snippets/new
   def new
-    authorize @snippet, :new?
     @snippet = @box.snippets.new
+    authorize @snippet, :new?
   end
 
   # GET /snippets/1/edit
@@ -29,8 +29,8 @@ class SnippetsController < ApplicationController
   # POST /snippets
   # POST /snippets.json
   def create
-    authorize @snippet, :create?
     @snippet = @box.snippets.new(snippet_params)
+    authorize @snippet, :create?
 
     respond_to do |format|
       if @snippet.save

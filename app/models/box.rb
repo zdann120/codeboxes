@@ -1,6 +1,6 @@
 class Box < ApplicationRecord
   belongs_to :user
-  has_many :snippets
+  has_many :snippets, dependent: :destroy
   before_create :set_token
 
   enum privacy_level: [:locked, :unlisted, :open]

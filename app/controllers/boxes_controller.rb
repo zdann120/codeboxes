@@ -16,8 +16,8 @@ class BoxesController < ApplicationController
 
   # GET /boxes/new
   def new
-    authorize @box, :new?
     @box = current_user.boxes.new
+    authorize @box, :new?
     @languages = [:ruby, :html, :csv, :css, :erb, :haml, :json, :php, :javascript, :sql, :text, :xml, :yaml]
   end
 
