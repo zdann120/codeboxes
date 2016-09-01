@@ -14,17 +14,19 @@ class BoxesController < ApplicationController
 
   # GET /boxes/new
   def new
-    @box = Box.new
+    @box = current_user.boxes.new
+    @languages = [:ruby, :html, :csv]
   end
 
   # GET /boxes/1/edit
   def edit
+    @languages = [:ruby, :html, :csv]
   end
 
   # POST /boxes
   # POST /boxes.json
   def create
-    @box = Box.new(box_params)
+    @box = current_user.boxes.new(box_params)
 
     respond_to do |format|
       if @box.save

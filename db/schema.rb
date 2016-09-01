@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901210436) do
+ActiveRecord::Schema.define(version: 20160901212835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,19 @@ ActiveRecord::Schema.define(version: 20160901210436) do
     t.datetime "updated_at",    null: false
     t.index ["token"], name: "index_boxes_on_token", unique: true, using: :btree
     t.index ["user_id"], name: "index_boxes_on_user_id", using: :btree
+  end
+
+  create_table "snippets", force: :cascade do |t|
+    t.integer  "box_id"
+    t.string   "token"
+    t.string   "haiku"
+    t.string   "title"
+    t.text     "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["box_id"], name: "index_snippets_on_box_id", using: :btree
+    t.index ["haiku"], name: "index_snippets_on_haiku", unique: true, using: :btree
+    t.index ["token"], name: "index_snippets_on_token", unique: true, using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,4 +60,5 @@ ActiveRecord::Schema.define(version: 20160901210436) do
   end
 
   add_foreign_key "boxes", "users"
+  add_foreign_key "snippets", "boxes"
 end

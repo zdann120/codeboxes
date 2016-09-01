@@ -1,0 +1,29 @@
+h1 Listing snippets
+
+table.table
+  thead
+    tr
+      th Box
+      th Token
+      th Haiku
+      th Title
+      th Code
+      th
+      th
+      th
+
+  tbody
+    - @snippets.each do |snippet|
+      tr
+        td = snippet.box
+        td = snippet.token
+        td = snippet.haiku
+        td = snippet.title
+        td = snippet.code
+        td = link_to 'Show', [@box, snippet]
+        td = link_to 'Edit', edit_box_snippet_path(@box, snippet)
+        td = link_to 'Destroy', [@box, snippet], data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Snippet', new_box_snippet_path

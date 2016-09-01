@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  box: one
+  token: 
+  haiku: 
+  title: MyString
+  code: MyText
+
+two:
+  box: two
+  token: 
+  haiku: 
+  title: MyString
+  code: MyText

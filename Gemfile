@@ -23,6 +23,7 @@ gem 'slim-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  # gem 'quiet_assets'
 end
 
 group :development do

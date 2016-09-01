@@ -1,0 +1,12 @@
+= simple_form_for [@box, @snippet] do |f|
+  - if @snippet.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@snippet.errors.count, "error")} prohibited this snippet from being saved:"
+      ul
+        - @snippet.errors.full_messages.each do |message|
+          li = message
+  = raw("<b>Box Language:</b> #{@box.box_language}")
+  = f.input :title
+  = f.input :code
+  .actions
+    = f.submit class: 'btn btn-primary'

@@ -5,6 +5,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :boxes
+
+  def to_s
+    email
+  end
+
   private
 
   def set_token
