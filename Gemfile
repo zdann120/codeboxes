@@ -18,6 +18,7 @@ gem 'bootstrap'
 gem 'coderay'
 gem 'ulid'
 gem 'haikunator'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platform: :mri
