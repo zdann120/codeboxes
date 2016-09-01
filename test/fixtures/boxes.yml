@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  token: 
+  user: one
+  title: MyString
+  privacy_level: 1
+  box_language: MyString
+
+two:
+  token: 
+  user: two
+  title: MyString
+  privacy_level: 1
+  box_language: MyString

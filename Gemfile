@@ -19,6 +19,7 @@ gem 'coderay'
 gem 'ulid'
 gem 'haikunator'
 gem 'simple_form'
+gem 'slim-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
