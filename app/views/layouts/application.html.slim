@@ -25,17 +25,17 @@ body
         button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"
           span.sr-only Toggle navigation
           span.icon-bar
-          pan.icon-bar
-          pan.icon-bar
-        a class="navbar-brand" href="#"
-          | CodeBoxes
+          span.icon-bar
+          span.icon-bar
+        = link_to "CodeBoxes", root_url, class: 'navbar-brand'
       div#navbar.collapse.navbar-collapse
         ul.nav.navbar-nav
           li
-            = link_to "Home", root_path
+            = link_to "My Boxes", root_path
           li
             = link_to "Logout", destroy_user_session_path, method: :delete
           li
-            a href="#contact"
+            = link_to "Contact", "#contact"
   .container
     == yield
+  | <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

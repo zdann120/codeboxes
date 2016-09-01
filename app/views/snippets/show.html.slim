@@ -1,6 +1,8 @@
 - if notice
   p#notice = notice
 h1 = @snippet.title + " < " + @snippet.box.title
+h2
+  small = @snippet.haiku
 p = @snippet.created_at
 p Submitted by: #{@box.user}
 .row
@@ -8,9 +10,6 @@ p Submitted by: #{@box.user}
     p
       strong Code:
       == CodeRay.scan(@snippet.code, @snippet.box.box_language.to_sym).div(:line_numbers => :table)
-
-pre
-  == simple_format CodeRay.scan(@snippet.code, @snippet.box.box_language.to_sym).statistic
 
 = link_to 'Edit', edit_box_snippet_path(@box, @snippet)
 '|

@@ -34,6 +34,7 @@ class SnippetsController < ApplicationController
 
     respond_to do |format|
       if @snippet.save
+        @snippet.save
         format.html { redirect_to [@box, @snippet], notice: 'Snippet was successfully created.' }
         format.json { render :show, status: :created, location: @snippet }
       else
@@ -72,7 +73,7 @@ class SnippetsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_snippet
-      @snippet = Snippet.find(params[:id])
+      @snippet = Snippet.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

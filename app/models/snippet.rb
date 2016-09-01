@@ -1,4 +1,6 @@
 class Snippet < ApplicationRecord
+  extend FriendlyId
+  friendly_id :haiku, use: [:slugged, :finders]
   belongs_to :box
   before_create :set_token
   before_create :set_haiku
