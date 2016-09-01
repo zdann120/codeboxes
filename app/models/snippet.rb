@@ -12,6 +12,6 @@ class Snippet < ApplicationRecord
   end
 
   def set_haiku
-    self.haiku = Haikunator.haikunate(1000, '-')
+    self.haiku = Haikunator.haikunate(9999, '-')
   end
 end
