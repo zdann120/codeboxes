@@ -20,6 +20,7 @@ gem 'ulid'
 gem 'haikunator'
 gem 'simple_form'
 gem 'slim-rails'
+gem 'pundit'
 
 group :development, :test do
   gem 'byebug', platform: :mri

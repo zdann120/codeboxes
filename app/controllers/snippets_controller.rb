@@ -11,6 +11,7 @@ class SnippetsController < ApplicationController
   # GET /snippets/1
   # GET /snippets/1.json
   def show
+    authorize @snippet, :show?
   end
 
   # GET /snippets/new

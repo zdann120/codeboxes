@@ -1,15 +1,17 @@
 - if notice
   p#notice = notice
 h1 = @snippet.title + " < " + @snippet.box.title
+p = @snippet.created_at
+p Submitted by: #{@box.user}
 .row
-  .col-md-8
+  .col-md-12
     p
       strong Code:
-      == CodeRay.scan(@snippet.code, @snippet.box.box_language.to_sym).div
-  .col-md-4
-    p = @snippet.created_at
-    p Submitted by: #{@box.user}
+      == CodeRay.scan(@snippet.code, @snippet.box.box_language.to_sym).div(:line_numbers => :table)
+
+pre
+  == simple_format CodeRay.scan(@snippet.code, @snippet.box.box_language.to_sym).statistic
 
 = link_to 'Edit', edit_box_snippet_path(@box, @snippet)
 '|
-= link_to 'Back', box_snippets_path(@box)
+= link_to 'Back', box_path(@box)

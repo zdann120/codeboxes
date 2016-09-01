@@ -4,7 +4,7 @@ class BoxesController < ApplicationController
   # GET /boxes
   # GET /boxes.json
   def index
-    @boxes = Box.all
+    @boxes = current_user.boxes
   end
 
   # GET /boxes/1
@@ -15,7 +15,7 @@ class BoxesController < ApplicationController
   # GET /boxes/new
   def new
     @box = current_user.boxes.new
-    @languages = [:ruby, :html, :csv]
+    @languages = [:ruby, :html, :csv, :css, :erb, :haml, :json, :php, :javascript, :sql, :text, :xml, :yaml]
   end
 
   # GET /boxes/1/edit

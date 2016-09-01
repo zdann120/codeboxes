@@ -6,18 +6,14 @@ h1 Boxes
 table.table
   thead
     tr
-      th Token
-      th User
       th Title
-      th Privacy level
-      th Box language
+      th Privacy
+      th Language
       th colspan="3"
 
   tbody
     - @boxes.each do |box|
       tr
-        td = box.token
-        td = box.user
         td = box.title
         td = box.privacy_level
         td = box.box_language
