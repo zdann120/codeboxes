@@ -28,6 +28,7 @@ gem 'pry-rails'
 group :development, :test do
   gem 'byebug', platform: :mri
   # gem 'quiet_assets'
+  gem 'letter_opener'
 end
 
 group :development do
