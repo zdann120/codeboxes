@@ -18,7 +18,7 @@ class SnippetPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user == record.box.user
   end
 
   def edit?
