@@ -1,5 +1,5 @@
 class BoxesController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show, :public_index]
   before_action :set_box, only: [:show, :edit, :update, :destroy]
   before_action :set_languages, only: [:new, :edit]
 
