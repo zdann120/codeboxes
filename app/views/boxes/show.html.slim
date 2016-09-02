@@ -1,7 +1,8 @@
 h1 = "#{@box.title} (#{@box.box_language})"
 p.lead Privacy Status: #{@box.privacy_level}
 h2 Snippets
-= link_to "New Snippet", new_box_snippet_path(@box), class: 'btn btn-primary'
+- if user_signed_in?
+  = link_to "New Snippet", new_box_snippet_path(@box), class: 'btn btn-primary'
 = render 'boxes/snippet_table'
 = link_to 'Edit', edit_box_path(@box)
 = " | "
