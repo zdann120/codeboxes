@@ -21,10 +21,8 @@ class Admin::NewUser < ActiveInteraction::Base
     def create_user
       @token = nil
 
-      @user = User.invite!(:email => email, :password => password, :skip_invitation => true)
+      @user = User.invite!(:email => email, :password => password)
       errors.merge!(@user.errors) unless @user.save
-      UserMailer.new_account(@user.invitation_token, email).deliver_now
-      @user.deliver_invitation
       return @user unless @user.persisted?
     end
 end
