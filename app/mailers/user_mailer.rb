@@ -5,9 +5,10 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.new_account.subject
   #
-  def new_account(user)
-    @user = user
+  def new_account(token, email)
+    @token = token
+    @email = email
 
-    mail to: @user.email, subject: 'Your CodeBoxes Account', from: 'accounts@zachapps.com'
+    mail to: @email, subject: 'Your CodeBoxes Account', from: 'accounts@zachapps.com'
   end
 end

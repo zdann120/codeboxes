@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'active_interaction'
 gem 'devise'
+gem 'devise_invitable'
 gem 'bootstrap'
 gem 'coderay'
 gem 'ulid'
