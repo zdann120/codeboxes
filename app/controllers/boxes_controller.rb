@@ -1,5 +1,7 @@
 class BoxesController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
   before_action :set_box, only: [:show, :edit, :update, :destroy]
+  before_action :set_languages, only: [:new, :edit]
 
   # GET /boxes
   # GET /boxes.json
@@ -18,13 +20,11 @@ class BoxesController < ApplicationController
   def new
     @box = current_user.boxes.new
     authorize @box, :new?
-    @languages = [:ruby, :html, :csv, :css, :erb, :haml, :json, :php, :javascript, :sql, :text, :xml, :yaml]
   end
 
   # GET /boxes/1/edit
   def edit
     authorize @box, :edit?
-    @languages = [:ruby, :html, :csv]
   end
 
   # POST /boxes
@@ -78,5 +78,9 @@ class BoxesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def box_params
       params.require(:box).permit(:token, :user_id, :title, :privacy_level, :box_language)
+    end
+
+    def set_languages
+      @languages = [:ruby, :html, :csv, :css, :erb, :haml, :json, :php, :javascript, :sql, :text, :xml, :yaml]
     end
 end

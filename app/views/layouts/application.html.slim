@@ -33,7 +33,18 @@ body
           li
             = link_to "My Boxes", root_path
           li
-            = link_to "Logout", destroy_user_session_path, method: :delete
+            - if user_signed_in?
+              = link_to "Logout", destroy_user_session_path, method: :delete
+            - else
+              = link_to "Login", new_user_session_path
   .container
+    - if notice
+      div.alert.alert-info = notice
+      - if alert
+        div.alert.alert-warning = alert
+
+    - if user_signed_in?
+      | Logged in as: #{current_user}
+
     == yield
   | <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
