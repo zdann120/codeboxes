@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :boxes do
     resources :snippets
   end
-  root 'boxes#index'
+  root 'boxes#public_index'
   devise_for :users
 
   namespace :admin do

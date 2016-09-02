@@ -3,6 +3,8 @@ class Box < ApplicationRecord
   has_many :snippets, dependent: :destroy
   before_create :set_token
 
+  scope :open, -> { where(privacy_level: 2) }
+
   enum privacy_level: [:locked, :unlisted, :open]
 
   private

@@ -10,6 +10,10 @@ class BoxesController < ApplicationController
     @boxes = current_user.boxes
   end
 
+  def public_index
+    @boxes = Box.all.open
+  end
+
   # GET /boxes/1
   # GET /boxes/1.json
   def show

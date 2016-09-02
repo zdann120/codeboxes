@@ -1,0 +1,19 @@
+h1 Public Boxes
+
+table.table
+  thead
+    tr
+      th Title
+      th Privacy
+      th Language
+
+  tbody
+    - @boxes.each do |box|
+      tr
+        td = link_to box.title, box_path(box)
+        td = box.privacy_level
+        td = box.box_language
+
+br
+
+= link_to 'New Box', new_box_path, class: 'btn btn-success'
