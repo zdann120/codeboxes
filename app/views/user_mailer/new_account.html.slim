@@ -1,3 +1,4 @@
 h1 CodeBoxes Accounts
 p A new CodeBox account has been created for you.
-p
+p = @token
+p = link_to "Activate Account", accept_user_invitation_url(:invitation_token => @token)

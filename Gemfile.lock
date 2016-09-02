@@ -71,6 +71,9 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise_invitable (1.6.0)
+      actionmailer (>= 3.2.6)
+      devise (>= 3.2.0)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
@@ -215,6 +218,7 @@ DEPENDENCIES
   coderay
   coffee-rails (~> 4.2)
   devise
+  devise_invitable
   friendly_id
   haikunator
   jbuilder (~> 2.5)
