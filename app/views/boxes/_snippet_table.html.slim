@@ -1,0 +1,14 @@
+table.table
+  thead
+    tr
+      th Title
+      th colspan="3"
+        | Actions
+  tbody
+    - @box.snippets.each do |snippet|
+      tr
+        td = snippet.title
+        td colspan="3"
+          = link_to "Show", box_snippet_path(@box, snippet), class: 'btn btn-link'
+          = link_to "Edit", edit_box_snippet_path(@box, snippet), class: 'btn btn-link'
+          = link_to "Delete", box_snippet_path(@box, snippet), method: :delete, class: 'btn btn-link'
