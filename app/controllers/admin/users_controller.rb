@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
+  before_action :authorize_admin
   def index
-    authorize :admin, :show?
     @users = User.all
   end
 
@@ -21,5 +21,9 @@ class Admin::UsersController < ApplicationController
 
     def user_params
       params.require(:admin_new_user).permit(:email, :password)
+    end
+
+    def authorize_admin
+      authorize :admin, :show?
     end
 end
