@@ -12,6 +12,7 @@ class Admin::NewUser < ActiveInteraction::Base
     return user unless user.persisted?
     box = user.boxes.new(title: 'My First Box', box_language: 'text', privacy_level: 0)
     box.save
+    user.send_reset_password_instructions
     user
   end
 end
