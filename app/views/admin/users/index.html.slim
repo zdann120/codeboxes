@@ -1,0 +1,17 @@
+h1 All Users
+p
+  = link_to "New User", new_admin_user_path, class: "btn btn-link"
+table.table
+  thead
+    tr
+      th Email
+      th # Boxes
+      th Token
+      th Created at
+  tbody
+    - @users.each do |u|
+      tr
+        td = u.email
+        td = u.boxes.count
+        td = u.token
+        td = u.created_at
