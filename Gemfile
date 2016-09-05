@@ -24,6 +24,7 @@ gem 'slim-rails'
 gem 'pundit'
 gem 'friendly_id'
 gem 'pry-rails'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 
 group :development, :test do
   gem 'byebug', platform: :mri
