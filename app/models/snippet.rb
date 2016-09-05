@@ -11,6 +11,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  slug       :string
+#  language   :string
 #
 # Indexes
 #
@@ -30,6 +31,12 @@ class Snippet < ApplicationRecord
   belongs_to :box
   before_create :set_token
   before_create :set_haiku
+  
+  def show_language
+    @lang = self.language
+    @lang ||= self.box.box_language
+    @lang
+  end
 
   private
 

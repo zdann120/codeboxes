@@ -9,6 +9,6 @@ p Submitted by: #{@box.user}
   .col-md-12
     p
       strong Code:
-      == CodeRay.scan(@snippet.code, @snippet.box.box_language.to_sym).div(line_numbers: :table, css: :class)
+      == CodeRay.scan(@snippet.code, @snippet.show_language.to_sym).div(line_numbers: :table, css: :class)
 - if current_user and (current_user == @box.user)
   = link_to 'Edit', edit_box_snippet_path(@box, @snippet)

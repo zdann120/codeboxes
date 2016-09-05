@@ -28,6 +28,7 @@ class SnippetsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :set_snippet, only: [:show, :edit, :update, :destroy]
   before_action :set_box
+  before_action :set_languages
 
   # GET /snippets
   # GET /snippets.json
@@ -105,10 +106,14 @@ class SnippetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def snippet_params
-      params.require(:snippet).permit(:box_id, :token, :haiku, :title, :code)
+      params.require(:snippet).permit(:box_id, :token, :haiku, :title, :code, :language)
     end
 
     def set_box
       @box = Box.find params[:box_id]
+    end
+    
+    def set_languages
+      @languages = [:ruby, :html, :csv, :css, :erb, :haml, :json, :php, :javascript, :sql, :text, :xml, :yaml]
     end
 end
