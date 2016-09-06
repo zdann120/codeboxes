@@ -1,14 +1,13 @@
 h1
   = @snippet.title + " < "
   = link_to @snippet.box.title, box_path(@box)
+p Submitted by: #{@box.user} on #{@snippet.created_at.strftime('%b %e, %Y at %I:%M %p')}
 h2
-  small = @snippet.haiku
-p = @snippet.created_at
-p Submitted by: #{@box.user}
+  span.label.label-default = @snippet.haiku
+
 .row
   .col-md-12
     p
-      strong Code:
       == CodeRay.scan(@snippet.code, @snippet.show_language.to_sym).div(line_numbers: :table, css: :class)
 - if current_user and (current_user == @box.user)
   = link_to 'Edit', edit_box_snippet_path(@box, @snippet)
