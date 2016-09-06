@@ -106,7 +106,7 @@ class SnippetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def snippet_params
-      params.require(:snippet).permit(:box_id, :token, :haiku, :title, :code, :language)
+      params.require(:snippet).permit(:box_id, :token, :haiku, :title, :code, :language, :expires, :expiration)
     end
 
     def set_box

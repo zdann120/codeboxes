@@ -12,6 +12,8 @@
 #  updated_at :datetime         not null
 #  slug       :string
 #  language   :string
+#  expires    :boolean          default(FALSE)
+#  expiration :datetime
 #
 # Indexes
 #

@@ -9,5 +9,7 @@
   = f.input :title
   = f.input :language, as: :select, collection: @languages, default: @box.box_language
   = f.input :code
+  = f.input :expires, as: :boolean
+  = f.input :expiration, as: :date
   .actions
     = f.submit class: 'btn btn-primary'

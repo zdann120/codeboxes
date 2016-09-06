@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905235202) do
+ActiveRecord::Schema.define(version: 20160906001932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,10 +45,12 @@ ActiveRecord::Schema.define(version: 20160905235202) do
     t.string   "haiku"
     t.string   "title"
     t.text     "code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "slug"
     t.string   "language"
+    t.boolean  "expires",    default: false
+    t.datetime "expiration"
     t.index ["box_id"], name: "index_snippets_on_box_id", using: :btree
     t.index ["haiku"], name: "index_snippets_on_haiku", unique: true, using: :btree
     t.index ["slug"], name: "index_snippets_on_slug", unique: true, using: :btree
