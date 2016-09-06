@@ -1,2 +1,0 @@
-class TokensControllerController < ApplicationController
-end

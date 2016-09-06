@@ -25,6 +25,7 @@ gem 'pundit'
 gem 'friendly_id'
 gem 'pry-rails'
 gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'jwt'
 
 group :development, :test do
   gem 'byebug', platform: :mri
