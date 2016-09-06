@@ -6,6 +6,7 @@ table.table
       th Title
       th Privacy
       th Language
+      th API Token
       th colspan="2"
 
   tbody
@@ -14,6 +15,7 @@ table.table
         td = link_to box.title, box_path(box)
         td = box.privacy_level
         td = box.box_language
+        td = link_to truncate(box.get_jwt, length: 24), v_path(token: box.get_jwt), disabled: true
         td = link_to 'Edit', edit_box_path(box)
         td = link_to 'Destroy', box, method: :delete, data: { confirm: 'Are you sure?' }
 
