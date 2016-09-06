@@ -1,2 +1,3 @@
 h1 Your JSON Web Token
 = text_field_tag 'jwt', @token, class: 'form-control', disabled: true
+= link_to "Validate this Token", v_path(token: @token), class: 'btn btn-primary'
