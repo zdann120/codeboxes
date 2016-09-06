@@ -7,7 +7,7 @@ class TokensController < ApplicationController
 
   def show
     @user = current_user
-    @token = current_user.jwt
+    @token = current_user.get_jwt(current_user)
     @decode = Tokens::Decode.run(token: @token).result
   end
 
