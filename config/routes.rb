@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    get 'test', to: 'snippets#test'
-    get 'boxes', to: 'snippets#boxes'
+    get 'test', to: 'requests#test'
+    get 'boxes', to: 'requests#boxes'
+    get 'snippets', to: 'requests#snippets'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
