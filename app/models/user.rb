@@ -50,14 +50,7 @@ class User < ApplicationRecord
   end
 
   def jwt
-    payload = {
-      key_type: 'user',
-      jti: ULID.generate,
-      iat: Time.zone.now.to_i,
-      exp: (Time.zone.now + 1.day).to_i
-    }
-
-    Tokens::Generate.run(type: 'user', resource_token: self.token, user_token: User.first.token).result
+    get_jwt
   end
 
   private

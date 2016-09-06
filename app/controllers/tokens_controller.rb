@@ -16,6 +16,7 @@ class TokensController < ApplicationController
     check_token
     if @user
       @status = "VALID"
+      @model = @result[0]['key_type'].capitalize.constantize.find_by_token @result[0]['token']
     else
       @status = "INVALID"
     end

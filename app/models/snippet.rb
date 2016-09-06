@@ -41,10 +41,7 @@ class Snippet < ApplicationRecord
   end
 
   def jwt
-    payload = {
-      haiku: self.haiku
-    }
-    result = Tokens::Generate.run(type: 'snippet', resource_token: self.token, user_token: User.first.token).result
+    get_jwt
   end
 
   private

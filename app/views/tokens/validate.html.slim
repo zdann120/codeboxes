@@ -9,6 +9,9 @@ pre
 - @exp = Time.zone.at(@result[0]['exp'])
 ul
   li Token signature verified.
-  li Key type: #{@result[0]['key_type']}
+  li 
+    | Key type: #{@result[0]['key_type']}
+    br
+    = @model
   li This token expires at: #{@exp}
   li This token has UUID: #{@result[0]['jti']}
