@@ -54,7 +54,7 @@ class User < ApplicationRecord
     payload = {
       user: self.id,
       token: self.token,
-      admin: self.admin
+      timestamp: Time.zone.now
     }
     JWT.encode payload, hmac_secret, 'HS256'
   end
