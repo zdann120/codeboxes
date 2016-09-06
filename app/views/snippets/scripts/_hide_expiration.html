@@ -1,0 +1,20 @@
+<script>
+  $(document).ready(function() {
+    if ($('#snippet_expires').is(':checked')) {
+        // the checkbox was checked 
+        
+    } else {
+        $('div.snippet_expiration').hide();
+    }
+    
+    $('#snippet_expires').on('click', function() {
+      if ($('#snippet_expires').is(':checked')) {
+        // the checkbox was checked 
+          $('div.snippet_expiration').show();
+      } else {
+          $('div.snippet_expiration').hide();
+      }
+    })
+    
+  });
+</script>
