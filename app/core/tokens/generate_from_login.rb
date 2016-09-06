@@ -7,7 +7,7 @@ module Tokens
       user = User.find_by_email email
       if user
         if user.valid_password?(password)
-          user.get_jwt
+          user.get_jwt(user)
         else
           errors.add(:login, "is incorrect")
         end

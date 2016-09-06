@@ -27,7 +27,7 @@ class Api::RequestsController < ApplicationController
     @password = params[:password]
     result = Tokens::GenerateFromLogin.run(email: @email, password: @password)
     if result.valid?
-      render json: { token: result.result}
+      render json: { token: result.result }
     else
       render json: { errors: result.errors.full_messages.to_s }
     end
