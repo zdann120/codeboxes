@@ -2,12 +2,14 @@ table.table
   thead
     tr
       th Title
+      th Language
       th colspan="3"
         | Actions
   tbody
     - @box.snippets.each do |snippet|
       tr
         td = snippet.title
+        td = snippet.language
         td colspan="3"
           = link_to "Show", box_snippet_path(@box, snippet), class: 'btn btn-link'
           = link_to "Edit", edit_box_snippet_path(@box, snippet), class: 'btn btn-link'
