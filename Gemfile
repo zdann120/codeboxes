@@ -26,6 +26,7 @@ gem 'friendly_id'
 gem 'pry-rails'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'jwt'
+gem 'awesome_print'
 
 group :development, :test do
   gem 'byebug', platform: :mri
