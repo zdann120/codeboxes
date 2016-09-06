@@ -1,5 +1,6 @@
 class Api::RequestsController < ApplicationController
-  before_action :check_headers
+  skip_before_action :verify_authenticity_token
+  before_action :check_headers, except: [:login]
   def test
     render json: @result
   end
@@ -8,7 +9,7 @@ class Api::RequestsController < ApplicationController
     @result ||= [{'user_token': nil}]
     @user = User.find_by_token @result[0]['user_token']
     @boxes = @user.boxes
-    render json: { boxes: @boxes }
+    render 'boxes', formats: :json
   end
 
   def snippets
@@ -18,6 +19,17 @@ class Api::RequestsController < ApplicationController
       render json: @snippets
     else
       render json: { errors: 'Token does not point to a valid code box.' }
+    end
+  end
+
+  def login
+    @email = params[:email]
+    @password = params[:password]
+    result = Tokens::GenerateFromLogin.run(email: @email, password: @password)
+    if result.valid?
+      render json: { token: result.result}
+    else
+      render json: { errors: result.errors.full_messages.to_s }
     end
   end
 

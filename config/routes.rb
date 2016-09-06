@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get 'test', to: 'requests#test'
     get 'boxes', to: 'requests#boxes'
     get 'snippets', to: 'requests#snippets'
+    post 'login', to: 'requests#login'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
