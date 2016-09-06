@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   root 'boxes#public_index'
   devise_for :users
 
+  get 'token', to: 'tokens#show'
+
+  get 'v', to: 'tokens#validate'
+
   namespace :admin do
     resources :users, only: [:index, :new, :create]
   end
