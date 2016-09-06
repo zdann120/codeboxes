@@ -44,7 +44,7 @@ class Snippet < ApplicationRecord
     payload = {
       haiku: self.haiku
     }
-    result = Tokens::Generate.run(type: 'snippet', payload: payload).result
+    result = Tokens::Generate.run(type: 'snippet', resource_token: self.token, user_token: User.first.token).result
   end
 
   private

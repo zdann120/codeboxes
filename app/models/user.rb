@@ -53,12 +53,11 @@ class User < ApplicationRecord
     payload = {
       key_type: 'user',
       jti: ULID.generate,
-      token: self.token,
       iat: Time.zone.now.to_i,
       exp: (Time.zone.now + 1.day).to_i
     }
 
-    Tokens::Generate.run(type: 'user', payload: payload).result
+    Tokens::Generate.run(type: 'user', resource_token: self.token, user_token: User.first.token).result
   end
 
   private

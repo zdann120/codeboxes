@@ -26,7 +26,7 @@ class TokensController < ApplicationController
   def check_token
     hmac_secret = Rails.application.secrets.secret_key_base
     @result = Tokens::Decode.run(token: @token).result
-    user_token ||= @result[0]["token"]
+    user_token ||= @result[0]["user_token"]
     @user = User.find_by_token(user_token)
   end
 

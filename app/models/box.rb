@@ -30,6 +30,14 @@ class Box < ApplicationRecord
 
   enum privacy_level: [:locked, :unlisted, :open]
 
+  def jwt
+    current_user ||= User.first
+    payload = {
+      token: self.token
+    }
+    Tokens::Generate.run(type: 'box', resource_token: self.token, user_token: self.user.token).result
+  end
+
   private
 
   def set_token

@@ -1,3 +1,4 @@
 h1 Your JSON Web Token
+p.lead This is a digital "promise" that can be used to authenticate your CodeBoxes account on other ZNWeb sites.
 = text_field_tag 'jwt', @token, class: 'form-control', disabled: true
 = link_to "Validate this Token", v_path(token: @token), class: 'btn btn-primary'
