@@ -33,6 +33,18 @@ class Api::RequestsController < ApplicationController
     end
   end
 
+  def invite
+    outcome = Admin::NewUser.run(
+      email: params[:email],
+      password: ULID.generate
+    )
+    if outcome.valid?
+      render json: { email: params[:email], status: 'invited' }
+    else
+      render json: { email: params[:email], status: 'not invited' }
+    end
+  end
+
   private
 
   def check_headers
