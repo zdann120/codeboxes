@@ -7,6 +7,7 @@ module Tokens
 
     def execute
       result = {
+        iss: 'zachapps.com',
         user_token: user_token,
         key_type: type,
         token: resource_token,
