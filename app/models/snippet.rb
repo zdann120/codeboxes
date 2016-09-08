@@ -40,6 +40,10 @@ class Snippet < ApplicationRecord
     @lang
   end
 
+  def jwt
+    get_jwt
+  end
+
   private
 
   def set_token

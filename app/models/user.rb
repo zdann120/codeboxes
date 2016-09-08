@@ -50,13 +50,7 @@ class User < ApplicationRecord
   end
 
   def jwt
-    hmac_secret = Rails.application.secrets.secret_key_base
-    payload = {
-      user: self.id,
-      token: self.token,
-      admin: self.admin
-    }
-    JWT.encode payload, hmac_secret, 'HS256'
+    get_jwt
   end
 
   private

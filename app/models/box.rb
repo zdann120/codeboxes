@@ -30,6 +30,14 @@ class Box < ApplicationRecord
 
   enum privacy_level: [:locked, :unlisted, :open]
 
+  def to_s
+    title
+  end
+
+  def jwt
+    get_jwt
+  end
+
   private
 
   def set_token

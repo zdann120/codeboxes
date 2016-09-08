@@ -37,6 +37,8 @@ html lang="en"
               = link_to "My Boxes", boxes_path
   
             - if user_signed_in?
+              li
+                = link_to 'API Token', token_path
               - if current_user.admin
                 li
                  = link_to "Users", admin_users_path
