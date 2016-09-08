@@ -5,7 +5,8 @@ class ApplicationRecord < ActiveRecord::Base
     Tokens::Generate.run(
       type: self.class.name,
       resource_token: self.token,
-      user_token: user.token
+      user_token: user.token,
+      expires_in: 60 * 60
     ).result
   end
 end
