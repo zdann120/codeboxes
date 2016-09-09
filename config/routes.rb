@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'v', to: 'tokens#validate'
 
+  get 'box_feed', to: 'boxes#public_json'
+
   namespace :admin do
     resources :users, only: [:index, :new, :create]
   end

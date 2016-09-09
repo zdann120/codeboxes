@@ -35,6 +35,10 @@ class BoxesController < ApplicationController
     @boxes = current_user.boxes
   end
 
+  def public_json
+    render json: Box.all.open
+  end
+
   def public_index
     @boxes = Box.all.open
   end
