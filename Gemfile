@@ -28,6 +28,9 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'jwt'
 gem 'awesome_print'
 
+gem 'graphql'
+gem 'rack-cors', :require => 'rack/cors'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   # gem 'quiet_assets'

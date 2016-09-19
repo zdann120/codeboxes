@@ -102,6 +102,7 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    graphql (0.18.12)
     haikunator (1.1.0)
     i18n (0.7.0)
     jbuilder (2.6.0)
@@ -149,6 +150,7 @@ GEM
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.1)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0.1)
@@ -250,6 +252,7 @@ DEPENDENCIES
   devise
   devise_invitable
   friendly_id
+  graphql
   haikunator
   jbuilder (~> 2.5)
   jquery-rails
@@ -260,6 +263,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.0)
   pundit
+  rack-cors
   rails (~> 5.0.0, >= 5.0.0.1)
   ransack!
   sass-rails (~> 5.0)
