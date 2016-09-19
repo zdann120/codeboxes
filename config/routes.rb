@@ -22,5 +22,8 @@ Rails.application.routes.draw do
     post 'login', to: 'requests#login'
     post 'invite', to: 'requests#invite'
   end
+
+  resources :queries, via: [:post, :options]
+  get 'query', to: 'queries#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
